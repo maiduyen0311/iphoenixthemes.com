@@ -140,11 +140,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
-.brand-mark { width: 36px; height: 36px; flex: none; }
-.brand-mark .flame { transform-origin: 50% 80%; animation: flame 3.2s ease-in-out infinite; }
-.brand:hover .brand-mark .flame { animation-duration: .9s; }
-.brand-name { font-weight: inherit; }
-.brand-name span { color: var(--mint); }
+.brand-logo { display: block; width: auto; height: 36px; transition: transform .45s var(--ease-spring), opacity .3s; }
+.brand:hover .brand-logo { transform: translateY(-2px); opacity: .85; }
+.site-footer .brand-logo { height: 38px; }
 
 .nav { display: flex; align-items: center; gap: 28px; }
 .nav-links { display: flex; gap: 26px; font-size: 15px; font-weight: 500; }
@@ -815,7 +813,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes shimmer { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.12) translate(-2%, -1%); } }
 @keyframes type-bar { 0% { transform: scaleX(0); } 25%, 85% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
-@keyframes flame { 0%, 100% { transform: scale(1) rotate(0); } 30% { transform: scale(1.05, .95) rotate(-3deg); } 60% { transform: scale(.96, 1.06) rotate(2deg); } }
 @keyframes nav-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 @keyframes viz-fade { 0%, 48% { opacity: 1; } 58%, 94% { opacity: .3; } 100% { opacity: 1; } }
 @keyframes viz-in { 0%, 50% { opacity: 0; transform: translateY(8px) scale(.94); } 60%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(8px) scale(.94); } }
