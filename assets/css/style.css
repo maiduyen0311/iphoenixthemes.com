@@ -24,7 +24,7 @@
 
   --radius: 18px;
   --radius-sm: 10px;
-  --maxw: 1180px;
+  --maxw: 1200px;
   --shadow-sm: 0 1px 2px rgba(1, 23, 42, 0.05), 0 4px 12px -6px rgba(1, 23, 42, 0.08);
   --shadow: 0 1px 2px rgba(1, 23, 42, 0.05), 0 18px 40px -18px rgba(1, 23, 42, 0.18);
   --shadow-lg: 0 2px 4px rgba(1, 23, 42, 0.04), 0 36px 70px -30px rgba(1, 23, 42, 0.28);
@@ -161,6 +161,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .lang-switch a { padding: 4px 10px; border-radius: 999px; color: var(--muted); transition: color .2s; }
 .lang-switch a:hover { color: var(--ink); }
 .lang-switch a[aria-current="page"] { background: var(--grad-line); color: #fff; }
+/* EN page: the switch only appears for visitors in Vietnam (see geo script in <head>) */
+html:not(.geo-vn) .lang-switch[data-geo="vn"] { display: none; }
 /* VI-only menu item: slides in so the switch to Vietnamese visibly adds it */
 .nav-links a.nav-vn { color: var(--green); font-weight: 600; }
 .nav-links a.nav-vn::before {
@@ -434,7 +436,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .theme-actions .btn { flex: 1; }
 
 /* browser mockup */
-.mock { padding: 18px 18px 0; background: linear-gradient(180deg, var(--paper), #fff); overflow: hidden; }
+.mock { display: block; padding: 18px 18px 0; background: linear-gradient(180deg, var(--paper), #fff); overflow: hidden; }
 .mock-window {
   border-radius: 10px 10px 0 0; overflow: hidden; background: #fff;
   box-shadow: 0 0 0 1px var(--line), 0 10px 30px -12px rgba(1, 23, 42, 0.25);
@@ -445,46 +447,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .theme:hover .mock-window { transform: translateY(-6px) scale(1.02); }
 .mock-bar { display: flex; align-items: center; gap: 5px; height: 22px; padding: 0 10px; background: #eef3f1; flex: none; }
 .mock-bar i { width: 7px; height: 7px; border-radius: 50%; background: #c6d3ce; }
-.mock-bar b { flex: 1; height: 10px; margin-left: 10px; border-radius: 4px; background: #fff; }
-.mock-nav { display: flex; align-items: center; gap: 6px; height: 20px; padding: 0 10px; border-bottom: 1px solid #edf1ef; flex: none; }
-.mock-nav .logo { width: 34px; height: 7px; border-radius: 2px; background: var(--navy); }
-.mock-nav .links { display: flex; gap: 5px; margin-left: auto; }
-.mock-nav .links i { width: 16px; height: 4px; border-radius: 2px; background: #cdd8d4; }
-.mock-hero { position: relative; flex: 1.3; overflow: hidden; }
-.mock-hero .bg { position: absolute; inset: 0; background-size: cover; background-position: center; animation: kenburns 14s ease-in-out infinite alternate; }
-.mock-hero .copy { position: absolute; left: 10%; top: 50%; transform: translateY(-50%); display: grid; gap: 5px; z-index: 1; }
-.mock-hero .copy i { display: block; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.92); transform-origin: left; animation: type-bar 4s var(--ease-out) infinite; }
-.mock-hero .copy i:nth-child(1) { width: 70px; height: 9px; }
-.mock-hero .copy i:nth-child(2) { width: 50px; animation-delay: .15s; }
-.mock-hero .copy b { display: block; width: 36px; height: 11px; margin-top: 4px; border-radius: 3px; animation: pulse 2.4s ease-in-out infinite; }
-.mock-dots { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 1; }
-.mock-dots i { width: 4px; height: 4px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); }
-.mock-dots i:first-child { width: 10px; border-radius: 2px; background: #fff; }
-.mock-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 8px 10px 10px; flex: 1; }
-.mock-grid i {
-  border-radius: 4px; background: #eef3f1;
-  background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.85) 50%, transparent 70%);
-  background-size: 250% 100%; background-repeat: no-repeat;
-  animation: shimmer 2.6s ease-in-out infinite;
+.mock-bar b {
+  flex: 1; min-width: 0; margin-left: 10px; padding: 0 8px; border-radius: 4px; background: #fff;
+  font: 500 10px/14px var(--mono); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.mock-grid i:nth-child(2) { animation-delay: .15s; }
-.mock-grid i:nth-child(3) { animation-delay: .3s; }
-.mock-grid i:nth-child(4) { animation-delay: .45s; }
-.mock-grid i:nth-child(5) { animation-delay: .6s; }
-
-.mock--topmarket .bg { background: linear-gradient(120deg, #0f2c4a, #1a5a78 55%, var(--mint)); }
-.mock--topmarket .mock-hero .copy b { background: #ffcf5c; }
-.mock--topmarket .mock-grid i:nth-child(odd) { background-color: #e6f2fb; }
-
-.mock--haley .bg { background-color: #e9e1d6; }
-.mock--haley .mock-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(60, 44, 30, 0.5), transparent 65%); }
-.mock--haley .mock-hero .copy b { background: #fff; }
-.mock--haley .mock-grid i { background-color: #f1ebe3; }
-
-.mock--occasion .bg { background: linear-gradient(110deg, #1d2b48, #2d4373 55%, #e55a3c 140%); }
-.mock--occasion .mock-hero .copy b { background: #e55a3c; }
-.mock--occasion .mock-grid { grid-template-columns: repeat(5, 1fr); }
-.mock--occasion .mock-grid i:nth-child(3n) { background-color: #fdeee9; }
+/* real homepage screenshot: scrolls top → bottom while the card is hovered */
+.mock-shot { position: relative; flex: 1; overflow: hidden; background: var(--paper); }
+.mock-shot img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;
+  transition: object-position 1.2s var(--ease-out);
+}
+.theme:hover .mock-shot img { object-position: 50% 100%; transition: object-position 9s linear .2s; }
+.theme-note { margin-top: 12px; font-size: 12.5px; color: var(--muted); }
+.theme-note b { font-family: var(--mono); color: var(--ink); }
 
 .themes-foot {
   position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
@@ -763,17 +738,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .form-status.is-visible :is(path, circle) { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .8s var(--ease-out) .15s forwards; }
 
 /* ---------- Footer ---------- */
-.site-footer { position: relative; background: var(--paper); color: var(--muted); padding: 56px 0 32px; font-size: 14px; border-top: 1px solid var(--line); }
+.site-footer {
+  position: relative; overflow: hidden; padding: 64px 0 32px; font-size: 14px;
+  background: radial-gradient(600px 300px at 90% 0%, rgba(95, 209, 165, 0.16), transparent 70%),
+              linear-gradient(160deg, var(--navy) 0%, var(--green) 100%);
+  color: rgba(255, 255, 255, 0.68);
+}
+.site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--grad-line);
+}
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+.site-footer .brand-logo { filter: brightness(0) invert(1); }
 .site-footer .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.footer-badges li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--ink); }
-.footer-badges svg { width: 14px; height: 14px; color: var(--green); }
+.footer-badges li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); font-size: 12.5px; font-weight: 600; color: #fff; }
+.footer-badges svg { width: 14px; height: 14px; color: var(--mint); }
 .site-footer p { margin-top: 14px; max-width: 340px; }
-.site-footer h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 14px; }
+.site-footer h4 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
 .site-footer ul { display: grid; gap: 8px; }
 .site-footer a { transition: color .2s; }
-.site-footer a:hover { color: var(--green); }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; }
+.site-footer a:hover { color: var(--mint); }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 13px; }
 .to-top { display: inline-flex; align-items: center; gap: 6px; }
 .to-top svg { width: 14px; height: 14px; transition: transform .3s var(--ease-spring); }
 .to-top:hover svg { transform: translateY(-3px); }
@@ -810,9 +794,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes twinkle { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(95, 209, 165, 0.6); } 100% { box-shadow: 0 0 0 10px rgba(95, 209, 165, 0); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
-@keyframes shimmer { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
-@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.12) translate(-2%, -1%); } }
-@keyframes type-bar { 0% { transform: scaleX(0); } 25%, 85% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
 @keyframes nav-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 @keyframes viz-fade { 0%, 48% { opacity: 1; } 58%, 94% { opacity: .3; } 100% { opacity: 1; } }
 @keyframes viz-in { 0%, 50% { opacity: 0; transform: translateY(8px) scale(.94); } 60%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(8px) scale(.94); } }

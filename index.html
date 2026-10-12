@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>i-Phoenix — Web development, software & Shopify themes</title>
-  <meta name="description" content="i-Phoenix builds fast, SEO-ready websites and Shopify stores, automates repetitive work with scripts and AI, and turns raw data into dashboards — plus Shopify themes sold on ThemeForest.">
+  <title>i-Phoenix — Shopify theme development & customization</title>
+  <meta name="description" content="Custom Shopify theme development and theme customization by i-Phoenix, a ThemeForest theme author. Online Store 2.0 sections, brand styling, speed and SEO tuning — full source code, fixed quotes.">
   <link rel="canonical" href="https://iphoenixthemes.com/">
   <link rel="alternate" hreflang="vi" href="https://iphoenixthemes.com/vi/">
   <link rel="alternate" hreflang="en" href="https://iphoenixthemes.com/">
@@ -13,15 +13,21 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="i-Phoenix">
-  <meta property="og:title" content="i-Phoenix — Web development, software & Shopify themes">
-  <meta property="og:description" content="Websites, software, APIs, SEO and Shopify themes — built to load fast, rank well and sell, from first sketch to launch.">
+  <meta property="og:title" content="i-Phoenix — Shopify theme development & customization">
+  <meta property="og:description" content="Custom Shopify themes and customization of the theme you already own — built by a ThemeForest theme author to load fast, rank well and sell.">
   <meta property="og:url" content="https://iphoenixthemes.com/">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.add("js");
+    // Show the VI/EN switch only to visitors in Vietnam (by device time zone).
+    try {
+      if (/^Asia\/(Ho_Chi_Minh|Saigon)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone)) document.documentElement.classList.add("geo-vn");
+    } catch (e) {}
+  </script>
   <script src="assets/js/main.js" defer></script>
   <script type="application/ld+json">
   {
@@ -31,7 +37,7 @@
     "url": "https://iphoenixthemes.com/",
     "logo": "https://iphoenixthemes.com/assets/img/logo.svg",
     "email": "support@iphoenixthemes.com",
-    "knowsAbout": ["Web development", "Software development", "Shopify", "SEO", "API"],
+    "knowsAbout": ["Shopify theme development", "Shopify theme customization", "Shopify", "Liquid", "Online Store 2.0", "SEO"],
     "sameAs": ["https://themeforest.net/user/i-phoenix"]
   }
   </script>
@@ -75,7 +81,7 @@
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </div>
-        <div class="lang-switch" aria-label="Language">
+        <div class="lang-switch" data-geo="vn" aria-label="Language">
           <a href="vi/" hreflang="vi" lang="vi">VI</a>
           <a href="./" aria-current="page" hreflang="en" lang="en">EN</a>
         </div>
@@ -90,42 +96,42 @@
 
       <div class="container hero-grid">
         <div data-stagger="0.12">
-          <span class="eyebrow reveal">Web development studio · Shopify theme author</span>
+          <span class="eyebrow reveal">Shopify theme developers · ThemeForest author</span>
           <h1>
-            <span class="line"><span>Websites, software</span></span>
-            <span class="line"><span>&amp; Shopify themes —</span></span>
-            <span class="line"><span><em>built right from the core.</em></span></span>
+            <span class="line"><span>Shopify themes,</span></span>
+            <span class="line"><span>built &amp; customized —</span></span>
+            <span class="line"><span><em>made to sell.</em></span></span>
           </h1>
-          <p class="hero-lead reveal">From a first sketch to the first order, i-Phoenix builds websites and Shopify stores that <strong>load fast, get found on Google and turn visitors into customers</strong> — then automates the busywork and turns raw data into dashboards people actually read. It's the same craft behind the Shopify themes merchants around the world buy on ThemeForest.</p>
+          <p class="hero-lead reveal">i-Phoenix is the team behind the Shopify themes merchants around the world buy on ThemeForest. We <strong>build custom Shopify themes from scratch</strong>, <strong>customize the theme you already own</strong> to fit your brand, and tune every store for speed, Core Web Vitals and SEO — so more visitors turn into orders.</p>
           <div class="hero-actions reveal">
             <a class="btn btn-primary magnetic" href="#contact">
-              Start a project
+              Get a free quote
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-outline" href="#themes">See our themes</a>
+            <a class="btn btn-outline" href="#paths">Customize my theme</a>
           </div>
           <div class="hero-stats reveal">
             <div><strong data-count="3">3</strong><span>Themes on ThemeForest</span></div>
+            <div><strong>2<i>.</i>0</strong><span>Online Store 2.0 ready</span></div>
             <div><strong><span data-count="100">100</span><i>%</i></strong><span>Source code is yours</span></div>
-            <div><strong>1<i>:</i>1</strong><span>Talk to the developers</span></div>
             <div><strong data-count="0">0</strong><span>Hidden costs</span></div>
           </div>
         </div>
 
         <div class="hero-visual reveal zoom" style="--d:.3s">
           <div class="code-card">
-            <div class="code-bar" aria-hidden="true"><i></i><i></i><i></i><b>i-phoenix / project.config.js</b></div>
-<pre class="code-body" data-type aria-label="Example project configuration"><span class="c-c">// Your next project</span>
-<span class="c-k">const</span> project = {
-  client:   <span class="c-s">"Your business"</span>,
-  frontend: <span class="c-s">"responsive, smooth, fast"</span>,
-  backend:  <span class="c-s">"API · services · CMS"</span>,
+            <div class="code-bar" aria-hidden="true"><i></i><i></i><i></i><b>i-phoenix / theme.config.js</b></div>
+<pre class="code-body" data-type aria-label="Example Shopify theme configuration"><span class="c-c">// Your Shopify theme</span>
+<span class="c-k">const</span> theme = {
+  store:    <span class="c-s">"Your brand"</span>,
+  base:     <span class="c-s">"Online Store 2.0"</span>,
+  sections: <span class="c-s">"custom · drag &amp; drop"</span>,
+  speed:    <span class="c-s">"Core Web Vitals"</span>,
   seo:      <span class="c-k">true</span>,
-  support:  <span class="c-s">"after launch"</span>,
 };
 
-<span class="c-f">build</span>(project).<span class="c-f">then</span>(<span class="c-f">launch</span>);
-<span class="c-c">// ✓ Live and running</span></pre>
+<span class="c-f">customize</span>(theme).<span class="c-f">then</span>(<span class="c-f">launch</span>);
+<span class="c-c">// ✓ Live on Shopify</span></pre>
           </div>
           <span class="float-chip chip-1" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
@@ -390,61 +396,57 @@
 
         <div class="themes" data-stagger="0.12">
           <article class="theme reveal" data-tilt="5">
-            <div class="mock mock--topmarket" aria-hidden="true">
+            <a class="mock" href="https://topmarket-demo.myshopify.com/" target="_blank" rel="noopener" tabindex="-1">
               <div class="mock-window">
-                <div class="mock-bar"><i></i><i></i><i></i><b></b></div>
-                <div class="mock-nav"><span class="logo"></span><span class="links"><i></i><i></i><i></i><i></i></span></div>
-                <div class="mock-hero"><div class="bg"></div><div class="copy"><i></i><i></i><b></b></div><div class="mock-dots"><i></i><i></i><i></i></div></div>
-                <div class="mock-grid"><i></i><i></i><i></i><i></i></div>
+                <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><b>topmarket-demo.myshopify.com</b></div>
+                <div class="mock-shot"><img src="assets/img/themes/top-market.jpg" alt="Top Market Shopify theme — marketplace homepage" width="900" height="5394" loading="lazy" decoding="async"></div>
               </div>
-            </div>
+            </a>
             <div class="theme-body">
-              <div class="theme-meta"><h3>Top Market</h3><span class="badge">Multipurpose</span></div>
-              <p>A Shopify theme for multi-category stores and online marketplaces — clear layouts built for browsing and conversion.</p>
-              <ul class="tags"><li>Shopify</li><li>Multi-category</li><li>Responsive</li></ul>
+              <div class="theme-meta"><h3>Top Market</h3><span class="badge">Marketplace</span></div>
+              <p>A fast Online Store 2.0 theme for marketplaces and multi-category stores — category sidebar with 4 mega menu styles, flash deals with countdown, wishlist, compare and bundles built in.</p>
+              <ul class="tags"><li>OS 2.0</li><li>70+ sections</li><li>31 languages</li></ul>
+              <p class="theme-note">Demo password: <b>10</b></p>
               <div class="theme-actions">
                 <a class="btn btn-dark btn-sm" href="https://topmarket-demo.myshopify.com/" target="_blank" rel="noopener">Live demo</a>
-                <a class="btn btn-outline btn-sm" href="https://themeforest.net/user/i-phoenix/portfolio" target="_blank" rel="noopener">ThemeForest ↗</a>
+                <a class="btn btn-outline btn-sm" href="https://iphoenixthemes.com/themes/top-market/" target="_blank" rel="noopener">Details ↗</a>
               </div>
             </div>
           </article>
 
           <article class="theme reveal" data-tilt="5">
-            <div class="mock mock--haley" aria-hidden="true">
+            <a class="mock" href="https://haley-demo.myshopify.com/" target="_blank" rel="noopener" tabindex="-1">
               <div class="mock-window">
-                <div class="mock-bar"><i></i><i></i><i></i><b></b></div>
-                <div class="mock-nav"><span class="logo"></span><span class="links"><i></i><i></i><i></i><i></i></span></div>
-                <div class="mock-hero"><div class="bg" style="background-image:url('https://haley-demo.myshopify.com/cdn/shop/files/haley-hd-hero-b1.jpg?width=800')"></div><div class="copy"><i></i><i></i><b></b></div><div class="mock-dots"><i></i><i></i><i></i></div></div>
-                <div class="mock-grid"><i></i><i></i><i></i><i></i></div>
+                <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><b>haley-demo.myshopify.com</b></div>
+                <div class="mock-shot"><img src="assets/img/themes/haley.jpg" alt="Haley Shopify theme — fashion boutique homepage" width="900" height="4338" loading="lazy" decoding="async"></div>
               </div>
-            </div>
+            </a>
             <div class="theme-body">
               <div class="theme-meta"><h3>Haley</h3><span class="badge">Fashion</span></div>
-              <p>An editorial Shopify theme for women's fashion brands — mega menu, multi-language &amp; currency, product bundles and a Deal of the Week countdown.</p>
+              <p>An elegant fashion boutique design included in the Top Market package — one-row header with mega menus, editorial banners, Deal of the Week with bundle and a journal.</p>
               <ul class="tags"><li>Fashion</li><li>Mega menu</li><li>Bundle</li><li>Countdown</li></ul>
+              <p class="theme-note">Demo password: <b>10</b></p>
               <div class="theme-actions">
                 <a class="btn btn-dark btn-sm" href="https://haley-demo.myshopify.com/" target="_blank" rel="noopener">Live demo</a>
-                <a class="btn btn-outline btn-sm" href="https://themeforest.net/user/i-phoenix/portfolio" target="_blank" rel="noopener">ThemeForest ↗</a>
+                <a class="btn btn-outline btn-sm" href="https://iphoenixthemes.com/themes/top-market/" target="_blank" rel="noopener">Details ↗</a>
               </div>
             </div>
           </article>
 
           <article class="theme reveal" data-tilt="5">
-            <div class="mock mock--occasion" aria-hidden="true">
+            <a class="mock" href="https://occasion-demo.myshopify.com/" target="_blank" rel="noopener" tabindex="-1">
               <div class="mock-window">
-                <div class="mock-bar"><i></i><i></i><i></i><b></b></div>
-                <div class="mock-nav"><span class="logo"></span><span class="links"><i></i><i></i><i></i><i></i></span></div>
-                <div class="mock-hero"><div class="bg"></div><div class="copy"><i></i><i></i><b></b></div><div class="mock-dots"><i></i><i></i><i></i></div></div>
-                <div class="mock-grid"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><b>occasion-demo.myshopify.com</b></div>
+                <div class="mock-shot"><img src="assets/img/themes/occasion.jpg" alt="Occasion Shopify theme — supermarket homepage" width="900" height="2988" loading="lazy" decoding="async"></div>
               </div>
-            </div>
+            </a>
             <div class="theme-body">
               <div class="theme-meta"><h3>Occasion</h3><span class="badge">Supermarket</span></div>
-              <p>A sectioned Shopify theme for supermarkets and general stores — multi-level mega menu, Daily Deals countdowns, product tabs, quick view &amp; wishlist.</p>
-              <ul class="tags"><li>Supermarket</li><li>Sections</li><li>Quick view</li></ul>
+              <p>A sectioned Shopify theme for supermarkets, groceries and large stores — Supermarket, Fashion, Shopping and Kids homepages, multiple shop and product layouts, Daily Deals countdowns.</p>
+              <ul class="tags"><li>4 homepages</li><li>Supermarket</li><li>Quick view</li></ul>
               <div class="theme-actions">
                 <a class="btn btn-dark btn-sm" href="https://occasion-demo.myshopify.com/" target="_blank" rel="noopener">Live demo</a>
-                <a class="btn btn-outline btn-sm" href="https://themeforest.net/user/i-phoenix/portfolio" target="_blank" rel="noopener">ThemeForest ↗</a>
+                <a class="btn btn-outline btn-sm" href="https://iphoenixthemes.com/themes/occasion/intro/index.html#portfolio" target="_blank" rel="noopener">Details ↗</a>
               </div>
             </div>
           </article>
